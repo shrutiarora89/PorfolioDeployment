@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/icons.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules.css">
+
+    <link rel="stylesheet" href="styles/styleCircle.css">
+
+
+
+    <!-- Handlebar used to instatiate properties of new instance   -->
+      <script id="rawData-template" type="text/x-handlebars-template">
+          <article class="{{template}}" data-category="{{category}}" data-author="{{institute}}">
+              <header>
+                  <h1>{{{title}}}</h1>
+                  <div class="byline">
+                   Studied at<address><a href="{{instituteUrl}}">{{institute}}</a></address>
+                   </div>
+               </header>
+               <section class="article-body">{{{body}}}</section>
+               <a href="#" class="read-on">Read on &rarr;</a>
+          </article>
+      </script>
+<!--+++++++++++-->
+
+
+<!--New HAndlebar Template- To reiterate the repo data  -->
+<script id="repo-template" type="text/x-handlebars-template">
+  <li>
+    <!-- Repo Attributes- name,description,language,created_at,updated_at,watchers_count-->
+    <a href="{{html_url}}" target="_blank"></a>
+    <h3>{{name}}</h3>
+    <p>Description: {{description}}</p>
+    <p>Language: {{language}}</p>
+    <p>Created: {{created_at}}</p>
+    <p>Last updated: {{updated_at}}</p>
+    <p>{{watchers_count}} watching this repo</p>
+  </li>
+</script>
+
+</head>
+
+<body>
+    <header class="site-header clearfix">
+          <section class="heading-group-h1">
+            <h1>Shruti Arora</h1>
+            <h2>My Online Portfolio </h2>
+          </section>
+
+          <nav class="main-nav icon-menu">
+              <ul>
+                <li class="tab" data-content="home"><a href="/home" class="icon-home"> Home</a></li>
+                <li class="tab" data-content="about"><a href="/about" class="icon-address-book"> About</a></li>
+                <li class="tab" data-content="education"><a href="/education">Education</a></li>
+                <li class="tab" data-content="projects"><a href="/projects">Projects</a></li>
+                <li><a href="https://www.linkedin.com/in/shruti-arora-88525ab7" target="_blank"> LinkedIn</a></li>
+                <li><a href="https://github.com/shrutiarora89" target="_blank" class="icon-github"> GitHub</a></li>
+                <li class="tab" data-content="contact"><a href="/contact">Contact</a></li>
+              </ul>
+          </nav>
+
+    </header>
+
+
+    <main>
+       <!-- #project and linked to projectsController -->
+      <section id="projects" class="tab-content">
+              <div>
+                <ul id="filters">
+                    <li>
+                      <select id="category-filter">
+                        <option value="">-- Filter by Categories --</option>
+                      </select>
+                    </li>
+                </ul>
+              </div>
+      </section>
+
+<!-- #about and linked to aboutController -->
+  <section id="about" class="tab-content">
+        <header>
+           Welcome to my Blog
+         </header>
+          <section>
+            <h1>Some of my interests:</h1>
+            <ul>
+              <li>Coding</li>
+              <li>Sharing what I've learned</li>
+              <li>Hanging with my family</li>
+              <li>Active in Sports</li>
+            </ul>
+          </section>
+      </section>
+
+      <!-- Append #education toHtml and linked to educationController -->
+      <section id="education" class="tab-content"></section>
+
+      <!-- Append #projects toHtml and linked to projectsController -->
+      <section id="projects" class="tab-content"></section>
+
+
+      <!-- Append #home toHtml and linked to homeController -->
+      <section id="home" style="position:relative;" class="tab-content">
+          <div style="position:relative;z-index:100">
+            <h1 id="h1">HELLO</h1>
+            <h2 id="h2">I'M SHRUTI</h2>
+            <h3 id="h3">I'M A 301 Intermediate Software Develpment Student...</h3>
+            <h3 id="h3">I AM A GREAT BLEND OF DESIGN 	&amp; PROGRAMMING</h3>
+          </div>
+         <div id="bubbles" style="position:absolute;z-index:0;top:0;left:0;opacity:0.1"></div>
+      </section>
+
+      <!-- Append #contact toHtml and linked to contactController -->
+      <section id="contact" class="tab-content">
+        <div id="contactDiv">
+            <h1>Contact Me</h1>
+           <ul>
+              <li><p><img src="img/phone.png" width="100" height="80" alt=""></p>+91 206 491 0658</li>
+              <li><p><img src="img/email.png" width="100" height="80" alt=""></p>shruti.arora89@icloud.com</li>
+              <li><a href="https://twitter.com/shrutiarora89" target="_blank" class="icon-twitter3"> Twitter</a></li>
+              <li><a href="https://github.com/shrutiarora89" target="_blank" class="icon-github"> GitHub</a></li>
+            </ul>
+          </div>
+      </section>
+
+
+  <!--Your new content will be displayed in here-->
+      <section class="content-placeholder"></section>
+
+    </main>
+    <footer>
+      &copy; 2015 Code Fellows | Portfolio | Happy Coding!
+    </footer>
+
+    <script src="/vendor/scripts/jquery-2.1.4.js"></script>
+    <script src="/vendor/scripts/handlebars.js"></script>
+    <script src="/vendor/scripts/marked.js"></script>
+    <script src="/vendor/scripts/html5sql.js"></script>
+    <script src="/vendor/scripts/page.js"></script>
+
+    <script src="/scripts/githubToken.js"></script>
+
+
+    <!-- Script files for the Article resource: -->
+    <script src="/scripts/webdb.js"></script>
+    <script src="/scripts/article.js"></script>
+    <script src="/scripts/articleView.js"></script>
+
+    <!-- DONE: Be sure to include any new script files: -->
+    <script src="/scripts/repo.js"></script>
+    <script src="/scripts/repoView.js"></script>
+    <script src="/scripts/aboutController.js"></script>
+    <script src="/scripts/homeController.js"></script>
+    <script src="/scripts/educationController.js"></script>
+    <script src="/scripts/projectsController.js"></script>
+    <script src="/scripts/contactController.js"></script>
+    <script src="/scripts/routes.js"></script>
+
+
+
+  <script>
+        // <!-- We want to run articleView.initIndexPage after the fetchAll method -->
+      Article.fetchEducation(articleView.initIndexPage);
+      Article.fetchProjects(articleView.initIndexPage);
+
+  </script>
+  </body>
+</html>
